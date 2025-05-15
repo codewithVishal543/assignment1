@@ -1,0 +1,25 @@
+@Service
+public class SuggestionService {
+    @Autowired private PatientRepository patientRepo;
+    @Autowired private DoctorRepository doctorRepo;
+
+    public Object suggestDoctors(Long patientId) {
+        Patient patient = patientRepo.findById(patientId)
+            .orElseThrow(() -> new RuntimeException("Patient not found"));
+
+        String city = patient.getCity();
+        String symptom = patient.getSymptom();
+        String speciality = SymptomMapper.getSpeciality(symptom);
+
+        if (!List.of("Delhi", "Noida", "Faridabad").contains(city)) {
+            return "We are still waiting to expand to your location";
+        }
+
+        List<Doctor> doctors = doctorRepo.findByCityAndSpeciality(city, speciality);
+        if (doctors.isEmpty()) {
+            return "There isn’t any doctor present at your location for your symptom";
+        }
+
+        return doctors;
+    }
+}
