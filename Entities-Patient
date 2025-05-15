@@ -1,0 +1,20 @@
+@Entity
+public class Patient {
+    @Id @GeneratedValue
+    private Long id;
+
+    @NotBlank @Size(min = 3)
+    private String name;
+
+    @Size(max = 20)
+    private String city;
+
+    @Email
+    private String email;
+
+    @Size(min = 10)
+    private String phone;
+
+    @Pattern(regexp = "Arthritis|Back Pain|Tissue injuries|Dysmenorrhea|Skin infection|skin burn|Ear pain")
+    private String symptom;
+}
