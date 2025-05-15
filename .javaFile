@@ -1,0 +1,15 @@
+public class SymptomMapper {
+    private static final Map<String, String> symptomToSpeciality = Map.ofEntries(
+        entry("Arthritis", "Orthopaedic"),
+        entry("Back Pain", "Orthopaedic"),
+        entry("Tissue injuries", "Orthopaedic"),
+        entry("Dysmenorrhea", "Gynecology"),
+        entry("Skin infection", "Dermatology"),
+        entry("skin burn", "Dermatology"),
+        entry("Ear pain", "ENT")
+    );
+
+    public static String getSpeciality(String symptom) {
+        return symptomToSpeciality.get(symptom);
+    }
+}
