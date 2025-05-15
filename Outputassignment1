@@ -1,0 +1,97 @@
+
+
+
+ ✅ Sample API Outputs
+
+ 1. `POST /doctors`
+
+**Request:**
+
+```json
+{
+  "name": "Dr. Neha Sharma",
+  "city": "Delhi",
+  "email": "neha.sharma@example.com",
+  "phone": "9876543210",
+  "speciality": "Gynecology"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": 1,
+  "name": "Dr. Neha Sharma",
+  "city": "Delhi",
+  "email": "neha.sharma@example.com",
+  "phone": "9876543210",
+  "speciality": "Gynecology"
+}
+```
+
+---
+
+ 2. `POST /patients`
+
+**Request:**
+
+```json
+{
+  "name": "Priya Singh",
+  "city": "Delhi",
+  "email": "priya@example.com",
+  "phone": "9999999999",
+  "symptom": "Dysmenorrhea"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": 1,
+  "name": "Priya Singh",
+  "city": "Delhi",
+  "email": "priya@example.com",
+  "phone": "9999999999",
+  "symptom": "Dysmenorrhea"
+}
+```
+
+---
+
+ 3. `GET /suggestions/1` (Suggest doctor for patient ID 1)
+
+**Response (if doctor exists in the same city and speciality):**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Dr. Neha Sharma",
+    "city": "Delhi",
+    "email": "neha.sharma@example.com",
+    "phone": "9876543210",
+    "speciality": "Gynecology"
+  }
+]
+```
+
+---
+
+ 4. Edge Case Outputs
+
+**Case: Patient is from Mumbai**
+
+```json
+"We are still waiting to expand to your location"
+```
+
+**Case: No matching doctor for the symptom in patient’s city**
+
+```json
+"There isn’t any doctor present at your location for your symptom"
+```
+
+
